@@ -337,12 +337,12 @@ function App() {
     if (!error) fetchProducts();
   };
 
-  const Header = () => (
-    <header>
+ const Header = () => (
+    <header style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '10px' }}>
       <div className="logo"><span className="logo-icon">S</span> Saaristokauppa</div>
-      <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+      <div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
         <span style={{ fontSize: '0.9rem', color: '#94a3b8' }}>
-          Kirjautuneena: <span style={{ color: '#fff', fontWeight: 'bold' }}>{role.toUpperCase()}</span>
+          Käyttäjä: <span style={{ color: '#fff', fontWeight: 'bold' }}>{role.toUpperCase()}</span>
         </span>
         <button onClick={handleLogout} style={{ background: 'none', border: 'none', color: '#ef4444', cursor: 'pointer', fontWeight: 'bold' }}>
           Kirjaudu ulos
