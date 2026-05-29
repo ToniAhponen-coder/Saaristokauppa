@@ -657,7 +657,7 @@ function App() {
           
           {adminTab === 'dashboard' && (
             <div>
-              <div className="product-grid" style={{ marginBottom: '30px' }}>
+              <div className="product-grid" style={{ marginBottom: '30px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '15px' }}>
                 <div className="product-card" style={{ borderLeft: '4px solid #38bdf8' }}>
                   <h3 style={{ color: '#94a3b8' }}>Uusia toiveita</h3>
                   <p style={{ fontSize: '2.5rem', margin: '10px 0', color: '#f8fafc' }}>{pendingOrders.length}</p>
@@ -945,7 +945,11 @@ function App() {
                 if (role === 'kauppias' && (u.role === 'admin' || u.role === 'kauppias')) return null;
                 
                 return (
-                  <div key={u.id} className="product-card" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderLeft: u.role === 'odottaa' ? '4px solid #f59e0b' : 'none' }}>
+                 <div key={u.id} className="product-card" style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', justifyContent: 'space-between', alignItems: 'center', borderLeft: u.role === 'odottaa' ? '4px solid #f59e0b' : 'none' }}>
+  <div style={{ minWidth: 0, flex: '1 1 100%' }}>
+    <span style={{ color: '#f8fafc', fontWeight: 'bold', fontSize: '1.1rem', display: 'block', wordBreak: 'break-all' }}>{u.email}</span>
+    {u.role === 'odottaa' && <span style={{ color: '#f59e0b', fontSize: '0.85rem' }}>Odottaa hyväksyntää</span>}
+  </div>
                     <div>
                       <span style={{ color: '#f8fafc', fontWeight: 'bold', fontSize: '1.1rem', display: 'block' }}>{u.email}</span>
                       {u.role === 'odottaa' && <span style={{ color: '#f59e0b', fontSize: '0.85rem' }}>Odottaa hyväksyntää</span>}
